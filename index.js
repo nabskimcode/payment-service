@@ -3,10 +3,13 @@ const bodyParser = require("body-parser");
 const axios = require("axios");
 const cors = require("cors");
 const paypal = require("paypal-rest-sdk");
-
+const connetDB = require("./config/db");
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+
+// Connect to DB
+connetDB();
 
 //Router files
 const payment = require("./routes/payment");
